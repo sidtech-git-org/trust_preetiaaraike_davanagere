@@ -20,7 +20,10 @@
           colors: {
             primary: '#7A1E3A',
             gold: '#E6B65C'
-          }
+          },
+          boxShadow: {
+              card: '0 10px 25px rgba(0,0,0,0.08)'
+  }
         }
       }
     }
@@ -130,7 +133,7 @@ legacy of compassion, care, and service to society.
 
         <!-- Founder photo -->
         <div class="text-center md:text-left">
-          <img src="/assets/img/dr_ravikumar_tg.jpg"
+          <img src="/assest/img/dr_ravikumar_tg.jpg"
             alt="Dr. Ravikumar T G, Founder of Aaraike Super Speciality Hospital"
             class="mx-auto md:mx-0 w-28 h-28 sm:w-36 sm:h-36 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-slate-100 shadow-md" />
           <div class="mt-4">
@@ -195,19 +198,17 @@ legacy of compassion, care, and service to society.
     </div>
   </section>
 
-  <!-- ================= ACTIVITIES ================= -->
-<!-- ================= ACTIVITIES ================= -->
-<section id="activities" class="py-20 bg-white">
+<!-- ================= PREMIUM ACTIVITIES ================= -->
+<section id="activities" class="py-20 bg-gray-100">
   <div class="container mx-auto px-4">
 
-    <div class="flex flex-col md:flex-row justify-between items-center">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-primary">
+    <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+      <h2 class="text-4xl font-extrabold text-primary">
         Our Programs & Activities
       </h2>
 
-      <!-- Year Filter -->
       <select id="yearFilter"
-        class="mt-4 md:mt-0 border border-gray-300 rounded-xl px-4 py-2">
+        class="mt-4 md:mt-0 border border-gray-300 rounded-xl px-4 py-2 shadow-sm">
         <option value="all">All Years</option>
         <option value="2023">2023–24</option>
         <option value="2024">2024–25</option>
@@ -215,7 +216,7 @@ legacy of compassion, care, and service to society.
     </div>
 
     <div id="activityGrid"
-      class="mt-12 grid md:grid-cols-3 gap-8">
+      class="grid md:grid-cols-3 gap-10">
     </div>
 
   </div>
@@ -304,23 +305,65 @@ const activities = [
     full: "Health kits distributed during pilgrimage ensuring safety and well-being.",
     images: ["assets/img/kit1.jpg", "assets/img/kit2.jpg"],
     pdf: "assets/pdf/healthkit.pdf"
+  },
+  {
+    id: 4,
+    year: "2025",
+    title: "Health Awareness Initiatives",
+    short: "Medical kits distributed to Ayyappa devotees.",
+    full: "Volunteers visit homes to create awareness about common health issues such as blood pressure, diabetes, ECG, ECHO, and infectious diseases, promoting preventive care. ",
+    images: ["assets/img/kit1.jpg", "assets/img/kit2.jpg"],
+    pdf: "assets/pdf/healthkit.pdf"
+  },
+  {
+    id: 5,
+    year: "2025",
+    title: "Educational Health Media",
+    short: "Medical kits distributed to Ayyappa devotees.",
+    full: "The trust regularly publishes informative videos and articles on health awareness, encouraging people to maintain a healthy lifestyle.",
+    images: ["assets/img/kit1.jpg", "assets/img/kit2.jpg"],
+    pdf: "assets/pdf/healthkit.pdf"
   }
+
 ];
 
 const grid = document.getElementById("activityGrid");
 const yearFilter = document.getElementById("yearFilter");
 
-function renderActivities(filterYear="all") {
+function renderActivities(filterYear = "all") {
   grid.innerHTML = activities
     .filter(a => filterYear === "all" || a.year === filterYear)
     .map(a => `
-      <div class="bg-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition p-6">
-        <h3 class="text-xl font-bold text-primary">${a.title}</h3>
-        <p class="mt-3 text-gray-600">${a.short}</p>
-        <button onclick="openModal(${a.id})"
-          class="mt-4 bg-primary text-white px-4 py-2 rounded-xl hover:bg-red-900 transition">
-          Read More
-        </button>
+      <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+
+        <!-- Image -->
+        <img src="${a.images[0]}"
+             class="w-full h-60 object-cover">
+
+        <div class="p-6">
+
+          <!-- Year -->
+          <p class="text-sm text-gray-400 mb-2">
+            ${a.year}
+          </p>
+
+          <!-- Title -->
+          <h3 class="text-xl font-bold text-primary leading-snug">
+            ${a.title}
+          </h3>
+
+          <!-- Short description -->
+          <p class="mt-3 text-gray-600 text-sm leading-relaxed">
+            ${a.short}
+          </p>
+
+          <!-- Button -->
+          <button onclick="openModal(${a.id})"
+            class="mt-6 bg-primary text-white px-5 py-2 rounded-lg hover:bg-red-900 transition">
+            Read More
+          </button>
+
+        </div>
       </div>
     `).join("");
 }
