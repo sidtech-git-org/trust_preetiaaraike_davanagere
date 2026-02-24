@@ -20,7 +20,10 @@
           colors: {
             primary: '#7A1E3A',
             gold: '#E6B65C'
-          }
+          },
+          boxShadow: {
+              card: '0 10px 25px rgba(0,0,0,0.08)'
+  }
         }
       }
     }
@@ -130,7 +133,7 @@ legacy of compassion, care, and service to society.
 
         <!-- Founder photo -->
         <div class="text-center md:text-left">
-          <img src="/assets/img/dr_ravikumar_tg.jpg"
+          <img src="/assest/img/dr_ravikumar_tg.jpg"
             alt="Dr. Ravikumar T G, Founder of Aaraike Super Speciality Hospital"
             class="mx-auto md:mx-0 w-28 h-28 sm:w-36 sm:h-36 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-slate-100 shadow-md" />
           <div class="mt-4">
@@ -195,63 +198,27 @@ legacy of compassion, care, and service to society.
     </div>
   </section>
 
-  <!-- ================= ACTIVITIES ================= -->
-<!-- ================= ACTIVITIES ================= -->
-<section id="activities" class="py-20 bg-white">
+<!-- ================= PREMIUM ACTIVITIES ================= -->
+<section id="activities" class="py-20 bg-gray-100">
   <div class="container mx-auto px-4">
 
-    <h2 class="text-3xl md:text-4xl font-extrabold text-primary text-center">
-      Our Activities
-    </h2>
+    <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+      <h2 class="text-4xl font-extrabold text-primary">
+        Our Programs & Activities
+      </h2>
 
-    <div class="mt-12 grid md:grid-cols-3 gap-8">
-
-      <!-- Activity Card 1 -->
-      <div class="bg-gray-50 rounded-2xl shadow hover:shadow-xl transition p-6">
-        <h3 class="text-xl font-bold text-primary">
-          Health Support for Veterans
-        </h3>
-        <p class="mt-3 text-slate-600">
-          Distributed health cards to 30 retired Indian Army soldiers.
-        </p>
-
-        <button onclick="openModal('veterans')"
-          class="mt-4 bg-primary text-white px-4 py-2 rounded-xl hover:bg-red-900 transition">
-          Read More
-        </button>
-      </div>
-
-      <!-- Activity Card 2 -->
-      <div class="bg-gray-50 rounded-2xl shadow hover:shadow-xl transition p-6">
-        <h3 class="text-xl font-bold text-primary">
-          Free Health Camps
-        </h3>
-        <p class="mt-3 text-slate-600">
-          100+ camps covering 40,000+ beneficiaries in Davangere district.
-        </p>
-
-        <button onclick="openModal('healthcamps')"
-          class="mt-4 bg-primary text-white px-4 py-2 rounded-xl hover:bg-red-900 transition">
-          Read More
-        </button>
-      </div>
-
-      <!-- Activity Card 3 -->
-      <div class="bg-gray-50 rounded-2xl shadow hover:shadow-xl transition p-6">
-        <h3 class="text-xl font-bold text-primary">
-          Health Kit Distribution
-        </h3>
-        <p class="mt-3 text-slate-600">
-          Distributed medical kits to Ayyappa Swamy devotees.
-        </p>
-
-        <button onclick="openModal('healthkit')"
-          class="mt-4 bg-primary text-white px-4 py-2 rounded-xl hover:bg-red-900 transition">
-          Read More
-        </button>
-      </div>
-
+      <select id="yearFilter"
+        class="mt-4 md:mt-0 border border-gray-300 rounded-xl px-4 py-2 shadow-sm">
+        <option value="all">All Years</option>
+        <option value="2023">2023–24</option>
+        <option value="2024">2024–25</option>
+      </select>
     </div>
+
+    <div id="activityGrid"
+      class="grid md:grid-cols-3 gap-10">
+    </div>
+
   </div>
 </section>
 
@@ -294,6 +261,176 @@ legacy of compassion, care, and service to society.
     </div>
   </section>
 
+<!-- ================= MODAL ================= -->
+<div id="activityModal"
+  class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+
+  <div class="bg-white max-w-5xl w-full rounded-2xl p-8 relative overflow-y-auto max-h-[90vh]">
+
+    <button onclick="closeModal()"
+      class="absolute top-4 right-6 text-2xl font-bold text-gray-600 hover:text-red-600">
+      &times;
+    </button>
+
+    <div id="modalContent"></div>
+
+  </div>
+</div>
+
+<script>
+const activities = [
+  {
+    id: 1,
+    year: "2023",
+    title: "Health Support for Veterans",
+    short: "Distributed lifetime health cards to 30 retired soldiers.",
+    full: "Health cards under the Preetiya Haraike Health Program have been distributed to 30 retired soldiers who served in the Indian Army. These cards enable them to avail free lifetime health check-ups at the Aarike Hospital.",
+    images: ["assest/img/v1.png", "assest/img/v2.png"],
+    pdf: "assests/pdf/apdf.pdf"
+  },
+  {
+    id: 2,
+    year: "2023",
+    title: "Free Health Camps",
+    short: "100+ camps benefiting 40,000+ people.",
+    full: "Organized over 100 camps across Davangere covering Vidyanagara, Harihara, Nittuvalli and more.",
+    images: ["assets/img/camp1.jpg", "assets/img/camp2.jpg"],
+    pdf: "assets/pdf/pdf"
+  },
+  {
+    id: 3,
+    year: "2024",
+    title: "Health Kit Distribution",
+    short: "Medical kits distributed to Ayyappa devotees.",
+    full: "Health kits distributed during pilgrimage ensuring safety and well-being.",
+    images: ["assets/img/kit1.jpg", "assets/img/kit2.jpg"],
+    pdf: "assets/pdf/healthkit.pdf"
+  },
+  {
+    id: 4,
+    year: "2025",
+    title: "Health Awareness Initiatives",
+    short: "Medical kits distributed to Ayyappa devotees.",
+    full: "Volunteers visit homes to create awareness about common health issues such as blood pressure, diabetes, ECG, ECHO, and infectious diseases, promoting preventive care. ",
+    images: ["assets/img/kit1.jpg", "assets/img/kit2.jpg"],
+    pdf: "assets/pdf/healthkit.pdf"
+  },
+  {
+    id: 5,
+    year: "2025",
+    title: "Educational Health Media",
+    short: "Medical kits distributed to Ayyappa devotees.",
+    full: "The trust regularly publishes informative videos and articles on health awareness, encouraging people to maintain a healthy lifestyle.",
+    images: ["assets/img/kit1.jpg", "assets/img/kit2.jpg"],
+    pdf: "assets/pdf/healthkit.pdf"
+  }
+
+];
+
+const grid = document.getElementById("activityGrid");
+const yearFilter = document.getElementById("yearFilter");
+
+function renderActivities(filterYear = "all") {
+  grid.innerHTML = activities
+    .filter(a => filterYear === "all" || a.year === filterYear)
+    .map(a => `
+      <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
+
+        <!-- Image -->
+        <img src="${a.images[0]}"
+             class="w-full h-60 object-cover">
+
+        <div class="p-6">
+
+          <!-- Year -->
+          <p class="text-sm text-gray-400 mb-2">
+            ${a.year}
+          </p>
+
+          <!-- Title -->
+          <h3 class="text-xl font-bold text-primary leading-snug">
+            ${a.title}
+          </h3>
+
+          <!-- Short description -->
+          <p class="mt-3 text-gray-600 text-sm leading-relaxed">
+            ${a.short}
+          </p>
+
+          <!-- Button -->
+          <button onclick="openModal(${a.id})"
+            class="mt-6 bg-primary text-white px-5 py-2 rounded-lg hover:bg-red-900 transition">
+            Read More
+          </button>
+
+        </div>
+      </div>
+    `).join("");
+}
+
+yearFilter.addEventListener("change", (e) => {
+  renderActivities(e.target.value);
+});
+
+renderActivities();
+
+function openModal(id) {
+  const activity = activities.find(a => a.id === id);
+
+  document.getElementById("modalContent").innerHTML = `
+    <h2 class="text-3xl font-bold text-primary mb-4">
+      ${activity.title}
+    </h2>
+    <p class="mb-6">${activity.full}</p>
+
+<div class="relative w-full">
+  <img id="sliderImage"
+    src="${activity.images[0]}"
+    class="rounded-xl w-full max-h-[500px] object-contain bg-gray-100">
+
+  <button onclick="prevImage()"
+    class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full">
+    ◀
+  </button>
+
+  <button onclick="nextImage()"
+    class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full">
+    ▶
+  </button>
+</div>
+
+  <button onclick="openPDF('assests/pdf/apdf.pdf')"
+    class="mt-6 bg-gold text-black px-6 py-3 rounded-xl font-semibold">
+    View Full Report
+  </button>
+  `;
+
+  currentImages = activity.images;
+  currentIndex = 0;
+
+  document.getElementById("activityModal").classList.remove("hidden");
+  document.getElementById("activityModal").classList.add("flex");
+}
+
+function closeModal() {
+  document.getElementById("activityModal").classList.add("hidden");
+}
+
+let currentImages = [];
+let currentIndex = 0;
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  document.getElementById("sliderImage").src = currentImages[currentIndex];
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  document.getElementById("sliderImage").src = currentImages[currentIndex];
+}
+</script>
+
+
   <!-- ================= FOOTER ================= -->
   <footer class="bg-primary text-white py-6 text-center">
     <p>© <span id="year"></span> Preeti Aaraike Trust. All Rights Reserved.</p>
@@ -306,68 +443,3 @@ legacy of compassion, care, and service to society.
 
 </body>
 </html>
-
-
-
-
-<script>
-const activitiesData = {
-
-  veterans: `
-    <h2 class="text-2xl font-bold text-primary mb-4">
-      Health Support for Veterans
-    </h2>
-    <p class="mb-6">
-    Health cards under the Preetiya Haraike Health Program have been distributed to 30 
-retired soldiers who served in the Indian Army. These cards enable them to avail 
-free lifetime health check-ups at the Aarike Hospital.
-
-    </p>
-
-    <div class="grid md:grid-cols-2 gap-4">
-      <img src="assest/img/v1.png" class="rounded-xl">
-      <img src="assets/img/veterans2.jpg" class="rounded-xl">
-    </div>
-  `,
-
-  healthcamps: `
-    <h2 class="text-2xl font-bold text-primary mb-4">
-      Free Health Camps
-    </h2>
-    <p class="mb-6">
-      Conducted every Tuesday and Friday across Davangere district.
-      Over 100 camps organized benefiting more than 40,000 people.
-    </p>
-
-    <div class="grid md:grid-cols-2 gap-4">
-      <img src="assets/img/healthcamp1.jpg" class="rounded-xl">
-      <img src="assets/img/healthcamp2.jpg" class="rounded-xl">
-    </div>
-  `,
-
-  healthkit: `
-    <h2 class="text-2xl font-bold text-primary mb-4">
-      Health Kit Distribution
-    </h2>
-    <p class="mb-6">
-      Medical kits were distributed to Ayyappa Swamy devotees 
-      to support their pilgrimage journey.
-    </p>
-
-    <div class="grid md:grid-cols-2 gap-4">
-      <img src="assets/img/healthkit1.jpg" class="rounded-xl">
-      <img src="assets/img/healthkit2.jpg" class="rounded-xl">
-    </div>
-  `
-};
-
-function openModal(activity) {
-  document.getElementById("modalContent").innerHTML = activitiesData[activity];
-  document.getElementById("activityModal").classList.remove("hidden");
-  document.getElementById("activityModal").classList.add("flex");
-}
-
-function closeModal() {
-  document.getElementById("activityModal").classList.add("hidden");
-}
-</script>
