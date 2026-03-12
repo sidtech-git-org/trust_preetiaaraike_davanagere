@@ -31,9 +31,8 @@
 </head>
 
 <body class="bg-gray-50 text-slate-800 font-sans">
-
   <!-- ================= HEADER ================= -->
-  <header class="sticky top-0 bg-white shadow z-50">
+  <header class="sticky top-0 bg-white/90 backdrop-blur shadow z-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <div>
         <h1 class="text-2xl font-extrabold text-primary">Preeti Aaraike Trust</h1>
@@ -88,7 +87,7 @@
   <!-- Content -->
   <div class="relative container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
 
-    <div>
+    <div class="opacity-0 translate-y-10 transition duration-1000 hero-animate">
       <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
         In Loving Memory of <br>
         <span class="text-yellow-400">Late Mrs. Preeti Ravikumar</span>
@@ -222,31 +221,105 @@ legacy of compassion, care, and service to society.
   </div>
 </section>
 
-  <!-- ================= GALLERY ================= -->
-  <section id="gallery" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-extrabold text-primary text-center">Gallery</h2>
+<section id="impact" class="bg-primary text-white py-24 overflow-hidden">
 
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
-        <img src="/assets/img/a1.jpg" class="rounded-2xl shadow object-cover h-60 w-full">
-        <img src="/assets/img/trust2.jpg" class="rounded-2xl shadow object-cover h-60 w-full">
-        <img src="/assets/img/trust3.jpg" class="rounded-2xl shadow object-cover h-60 w-full">
-      </div>
-    </div>
-  </section>
+<div class="max-w-6xl mx-auto px-6">
+
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-16 opacity-0 translate-y-10 transition duration-700 impact-animate">
+Our Impact
+</h2>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+
+<div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
+<h3 class="text-5xl font-bold counter" data-target="40000">0</h3>
+<p class="mt-3 text-white/80 text-lg">People Benefited</p>
+</div>
+
+<div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
+<h3 class="text-5xl font-bold counter" data-target="100">0</h3>
+<p class="mt-3 text-white/80 text-lg">Health Camps</p>
+</div>
+
+<div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
+<h3 class="text-5xl font-bold counter" data-target="30">0</h3>
+<p class="mt-3 text-white/80 text-lg">Veterans Supported</p>
+</div>
+
+<div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
+<h3 class="text-5xl font-bold counter" data-target="3">0</h3>
+<p class="mt-3 text-white/80 text-lg">Years of Service</p>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-extrabold text-primary text-center mb-12">
+      Our Gallery
+    </h2>
+  <div class="relative overflow-hidden rounded-2xl shadow-lg">
+  <img id="galleryImage"
+    src="assets/img/a1.jpg"
+    class="w-full h-[420px] object-cover transition duration-500">
+    <button onclick="prevGallery()"
+      class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full">
+    ◀
+    </button>
+    <button onclick="nextGallery()"
+      class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full">
+    ▶
+    </button>
+  </div>
+</div>
+</section>
 
   <!-- ================= DONATE ================= -->
-  <section id="donate" class="bg-yellow-50 py-16 text-center">
-    <h2 class="text-3xl font-extrabold text-primary">Support Our Cause</h2>
-    <p class="mt-4 text-slate-700">
-      Every contribution helps us transform lives and build a stronger community.
-    </p>
+  <section id="donate" class="bg-yellow-50 py-20">
 
-    <a href="#"
-      class="inline-block mt-8 bg-primary text-white px-8 py-3 rounded-xl font-semibold hover:bg-red-900 transition">
-      Donate Now
-    </a>
-  </section>
+<div class="max-w-4xl mx-auto px-6 text-center">
+
+<h2 class="text-3xl font-bold text-primary">
+Support Our Cause
+</h2>
+
+<p class="mt-4 text-slate-700">
+Your donation helps us organize medical camps, support veterans,
+and improve healthcare access in rural communities.
+</p>
+
+<div class="mt-10 grid md:grid-cols-2 gap-10 items-center">
+
+<div>
+
+<img src="assets/img/qr.png"
+class="w-64 mx-auto shadow-lg rounded-xl">
+<p class="mt-4 text-sm text-gray-600">
+Scan to donate via UPI
+</p>
+</div>
+<div class="text-left">
+<p class="font-semibold text-lg">Bank Details</p>
+<p class="mt-4 text-gray-700">
+Account Name: Preeti Aaraike Trust
+</p>
+<p class="text-gray-700">
+Bank: State Bank of India
+</p>
+<p class="text-gray-700">
+Account Number: XXXXXXXX
+</p>
+<p class="text-gray-700">
+IFSC: XXXXXXXX
+</p>
+</div>
+</div>
+</div>
+</section>
 
   <!-- ================= CONTACT ================= -->
   <section id="contact" class="py-16 bg-white">
@@ -326,96 +399,75 @@ const activities = [
   }
 
 ];
-
 const grid = document.getElementById("activityGrid");
 const yearFilter = document.getElementById("yearFilter");
-
 function renderActivities(filterYear = "all") {
   grid.innerHTML = activities
     .filter(a => filterYear === "all" || a.year === filterYear)
     .map(a => `
       <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
-
         <!-- Image -->
         <img src="${a.images[0]}"
              class="w-full h-60 object-cover">
-
         <div class="p-6">
-
           <!-- Year -->
           <p class="text-sm text-gray-400 mb-2">
             ${a.year}
           </p>
-
           <!-- Title -->
           <h3 class="text-xl font-bold text-primary leading-snug">
             ${a.title}
           </h3>
-
           <!-- Short description -->
           <p class="mt-3 text-gray-600 text-sm leading-relaxed">
             ${a.short}
           </p>
-
           <!-- Button -->
           <button onclick="openModal(${a.id})"
             class="mt-6 bg-primary text-white px-5 py-2 rounded-lg hover:bg-red-900 transition">
             Read More
           </button>
-
         </div>
       </div>
     `).join("");
 }
-
 yearFilter.addEventListener("change", (e) => {
   renderActivities(e.target.value);
 });
-
 renderActivities();
-
 function openModal(id) {
   const activity = activities.find(a => a.id === id);
-
   document.getElementById("modalContent").innerHTML = `
     <h2 class="text-3xl font-bold text-primary mb-4">
       ${activity.title}
     </h2>
     <p class="mb-6">${activity.full}</p>
-
 <div class="relative w-full">
   <img id="sliderImage"
     src="${activity.images[0]}"
     class="rounded-xl w-full max-h-[500px] object-contain bg-gray-100">
-
   <button onclick="prevImage()"
     class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full">
     ◀
   </button>
-
   <button onclick="nextImage()"
     class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full">
     ▶
   </button>
 </div>
-
   <button onclick="openPDF('assests/pdf/apdf.pdf')"
     class="mt-6 bg-gold text-black px-6 py-3 rounded-xl font-semibold">
     View Full Report
   </button>
   `;
-
   currentImages = activity.images;
   currentIndex = 0;
-
   document.getElementById("activityModal").classList.remove("hidden");
   document.getElementById("activityModal").classList.add("flex");
 }
-
 function closeModal() {
   document.getElementById("activityModal").classList.add("hidden");
 }
-
 let currentImages = [];
 let currentIndex = 0;
 
@@ -423,11 +475,86 @@ function nextImage() {
   currentIndex = (currentIndex + 1) % currentImages.length;
   document.getElementById("sliderImage").src = currentImages[currentIndex];
 }
-
 function prevImage() {
   currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
   document.getElementById("sliderImage").src = currentImages[currentIndex];
 }
+</script>
+
+
+<script>
+const counters = document.querySelectorAll(".counter");
+const impactSection = document.querySelector("#impact");
+const animatedElements = document.querySelectorAll(".impact-animate");
+let started = false;
+function animateCounters() {
+counters.forEach(counter => {
+const target = +counter.getAttribute("data-target");
+const increment = target / 200;
+const updateCount = () => {
+const current = +counter.innerText;
+if (current < target) {
+counter.innerText = Math.ceil(current + increment);
+setTimeout(updateCount, 15);
+} else {
+counter.innerText = target.toLocaleString() + "+";
+}
+};
+updateCount();
+});
+}
+function showAnimation(){
+animatedElements.forEach((el,i)=>{
+setTimeout(()=>{
+el.classList.remove("opacity-0","translate-y-10");
+}, i*150);
+});
+}
+window.addEventListener("scroll",()=>{
+const sectionTop = impactSection.offsetTop - window.innerHeight + 100;
+if(!started && window.scrollY > sectionTop){
+animateCounters();
+showAnimation();
+started = true;
+}
+});
+</script>
+
+<!-- ================= Gallery script ================= -->
+<script>
+
+const galleryImages = [
+"assets/img/a1.jpg",
+"assets/img/trust2.jpg",
+"assets/img/trust3.jpg"
+];
+
+let galleryIndex = 0;
+
+function nextGallery(){
+galleryIndex = (galleryIndex + 1) % galleryImages.length;
+document.getElementById("galleryImage").src = galleryImages[galleryIndex];
+}
+
+function prevGallery(){
+galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+document.getElementById("galleryImage").src = galleryImages[galleryIndex];
+}
+
+</script>
+
+<script>
+
+window.addEventListener("load",()=>{
+
+const hero = document.querySelector(".hero-animate");
+
+setTimeout(()=>{
+hero.classList.remove("opacity-0","translate-y-10");
+},300);
+
+});
+
 </script>
 
 
