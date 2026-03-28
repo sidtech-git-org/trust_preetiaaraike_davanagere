@@ -33,176 +33,173 @@
 <body class="bg-gray-50 text-slate-800 font-sans">
   <!-- ================= HEADER ================= -->
   <header class="sticky top-0 bg-white/95 backdrop-blur shadow z-50">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-    
-    <!-- Brand -->
-    <div class="min-w-0 flex-1">
-      <h1 class="text-[1.7rem] sm:text-2xl font-extrabold text-primary leading-tight truncate">
-        Preeti Aaraike Trust
-      </h1>
-      <p class="text-sm text-gray-600 leading-tight">Davangere, Karnataka</p>
-    </div>
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
 
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex gap-6 font-semibold text-sm items-center shrink-0">
-      <a href="#about" class="hover:text-primary">About</a>
-      <a href="#activities" class="hover:text-primary">Activities</a>
-      <a href="#impact" class="hover:text-primary">Impact</a>
-      <a href="#gallery" class="hover:text-primary">Gallery</a>
-      <a href="#contact" class="hover:text-primary">Contact</a>
-      <a href="#donate" class="bg-primary text-white px-4 py-2 rounded-xl hover:bg-red-900 transition">
-        Donate
-      </a>
-    </nav>
+      <!-- Brand -->
+      <div class="min-w-0 flex-1">
+        <h1 class="text-[1.7rem] sm:text-2xl font-extrabold text-primary leading-tight truncate">
+          Preeti Aaraike Trust
+        </h1>
+        <p class="text-sm text-gray-600 leading-tight">Davangere, Karnataka</p>
+      </div>
 
-    <!-- Mobile Hamburger -->
-    <button
-      id="menuBtn"
-      type="button"
-      class="md:hidden shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-lg border border-slate-300 bg-white text-slate-800"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
-      <svg id="menuIconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <svg id="menuIconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
-    <nav class="px-4 py-3 flex flex-col gap-1 font-semibold text-sm">
-      <a href="#about" class="mobile-link py-3 hover:text-primary">About</a>
-      <a href="#activities" class="mobile-link py-3 hover:text-primary">Activities</a>
-      <a href="#impact" class="mobile-link py-3 hover:text-primary">Impact</a>
-      <a href="#gallery" class="mobile-link py-3 hover:text-primary">Gallery</a>
-      <a href="#contact" class="mobile-link py-3 hover:text-primary">Contact</a>
-      <a href="#donate" class="mobile-link mt-2 bg-primary text-white px-4 py-3 rounded-xl text-center hover:bg-red-900 transition">
-        Donate
-      </a>
-    </nav>
-  </div>
-</header>
-
-<!-- ================= MOVING ANNOUNCEMENT ================= -->
-<div class="bg-primary text-white py-2 overflow-hidden">
-  <div class="marquee-wrapper">
-    <div class="marquee-track">
-      <a href="#upload" class="marquee-item underline">
-        📢 Programs & Activities Report Available – Click Here to View our Trust Activities
-      </a>
-      <a href="#upload" class="marquee-item underline" aria-hidden="true">
-        📢 Programs & Activities Report Available – Click Here to View our Trust Activities
-      </a>
-    </div>
-  </div>
-</div>
-
-<style>
-  .marquee-wrapper {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marquee-loop 25s linear infinite;
-  }
-
-  .marquee-item {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 600;
-  }
-
-  .marquee-item:first-child {
-    padding-right: 100vw;
-  }
-
-  .marquee-item:last-child {
-    padding-right: 0;
-  }
-
-  @keyframes marquee-loop {
-    0% {
-      transform: translateX(8%);
-    }
-    100% {
-      transform: translateX(calc(-100% - 70vw));
-    }
-  }
-
-  .marquee-wrapper:hover .marquee-track {
-    animation-play-state: paused;
-  }
-
-  @media (min-width: 768px) {
-    .marquee-item {
-      font-size: 15px;
-    }
-
-    .marquee-track {
-      animation-duration: 34s;
-    }
-  }
-</style>
-
-
- <!-- ================= HERO ================= -->
-<section class="relative h-[500px] sm:h-[540px] md:h-[540px] lg:h-[560px] text-white overflow-hidden bg-[#8b7a5d]">
-
-  <!-- Background Image -->
-  <div class="absolute inset-0">
-    <img
-      src="asset/img/image.png"
-      alt="Late Mrs. Preeti Ravikumar"
-      class="w-full h-full object-contain object-center md:object-contain md:object-[60%_center]"
-    >
-  </div>
-
-  <!-- Dark Overlay -->
-  <div class="absolute inset-0 bg-black/45"></div>
-
-  <!-- Content -->
-  <div class="relative h-full max-w-7xl mx-auto px-4 sm:px-5 md:px-8">
-    <div class="h-full flex items-center">
-      <div class="max-w-[290px] sm:max-w-[360px] md:max-w-[620px] opacity-0 translate-y-10 transition duration-1000 hero-animate">
-
-        <h2 class="text-[2rem] sm:text-[2.5rem] md:text-[3.7rem] font-extrabold leading-[0.95]">
-          In Loving Memory of
-          <span class="block mt-2 text-yellow-400">
-            Late Mrs. Preeti Ravikumar
-          </span>
-        </h2>
-
-        <p class="mt-5 text-[0.95rem] sm:text-[1.05rem] md:text-[1.02rem] text-white/90 leading-relaxed max-w-[560px]">
-          Preeti Aaraike Trust was founded to honor her compassion,
-          kindness, and dedication to serving humanity. Through this trust,
-          her legacy continues to uplift lives.
-        </p>
-
-        <a
-          href="#donate"
-          class="inline-block mt-7 bg-yellow-400 text-black px-6 py-3 rounded-2xl font-semibold text-base sm:text-lg hover:opacity-90 transition"
-        >
-          Donate Now
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex gap-6 font-semibold text-sm items-center shrink-0">
+        <a href="#about" class="hover:text-primary">About</a>
+        <a href="#activities" class="hover:text-primary">Activities</a>
+        <a href="#impact" class="hover:text-primary">Impact</a>
+        <a href="#gallery" class="hover:text-primary">Gallery</a>
+        <a href="#contact" class="hover:text-primary">Contact</a>
+        <a href="#donate" class="bg-primary text-white px-4 py-2 rounded-xl hover:bg-red-900 transition">
+          Donate
         </a>
+      </nav>
 
+      <!-- Mobile Hamburger -->
+      <button id="menuBtn" type="button"
+        class="md:hidden shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-lg border border-slate-300 bg-white text-slate-800"
+        aria-label="Open menu" aria-expanded="false">
+        <svg id="menuIconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menuIconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <nav class="px-4 py-3 flex flex-col gap-1 font-semibold text-sm">
+        <a href="#about" class="mobile-link py-3 hover:text-primary">About</a>
+        <a href="#activities" class="mobile-link py-3 hover:text-primary">Activities</a>
+        <a href="#impact" class="mobile-link py-3 hover:text-primary">Impact</a>
+        <a href="#gallery" class="mobile-link py-3 hover:text-primary">Gallery</a>
+        <a href="#contact" class="mobile-link py-3 hover:text-primary">Contact</a>
+        <a href="#donate"
+          class="mobile-link mt-2 bg-primary text-white px-4 py-3 rounded-xl text-center hover:bg-red-900 transition">
+          Donate
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= MOVING ANNOUNCEMENT ================= -->
+  <div class="bg-primary text-white py-2 overflow-hidden">
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <a href="#upload" class="marquee-item underline">
+          📢 Programs & Activities Report Available – Click Here to View our Trust Activities
+        </a>
+        <a href="#upload" class="marquee-item underline" aria-hidden="true">
+          📢 Programs & Activities Report Available – Click Here to View our Trust Activities
+        </a>
       </div>
     </div>
   </div>
-</section>
+
+  <style>
+    .marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee-loop 25s linear infinite;
+    }
+
+    .marquee-item {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .marquee-item:first-child {
+      padding-right: 100vw;
+    }
+
+    .marquee-item:last-child {
+      padding-right: 0;
+    }
+
+    @keyframes marquee-loop {
+      0% {
+        transform: translateX(8%);
+      }
+
+      100% {
+        transform: translateX(calc(-100% - 70vw));
+      }
+    }
+
+    .marquee-wrapper:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    @media (min-width: 768px) {
+      .marquee-item {
+        font-size: 15px;
+      }
+
+      .marquee-track {
+        animation-duration: 34s;
+      }
+    }
+  </style>
+
+
+  <!-- ================= HERO ================= -->
+  <section class="relative h-[500px] sm:h-[540px] md:h-[540px] lg:h-[560px] text-white overflow-hidden bg-[#8b7a5d]">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img src="asset/img/image.png" alt="Late Mrs. Preeti Ravikumar"
+        class="w-full h-full object-contain object-center md:object-contain md:object-[60%_center]">
+    </div>
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/45"></div>
+
+    <!-- Content -->
+    <div class="relative h-full max-w-7xl mx-auto px-4 sm:px-5 md:px-8">
+      <div class="h-full flex items-center">
+        <div
+          class="max-w-[290px] sm:max-w-[360px] md:max-w-[620px] opacity-0 translate-y-10 transition duration-1000 hero-animate">
+
+          <h2 class="text-[2rem] sm:text-[2.5rem] md:text-[3.7rem] font-extrabold leading-[0.95]">
+            In Loving Memory of
+            <span class="block mt-2 text-yellow-400">
+              Late Mrs. Preeti Ravikumar
+            </span>
+          </h2>
+
+          <p
+            class="mt-5 text-[0.95rem] sm:text-[1.05rem] md:text-[1.02rem] text-white/90 leading-relaxed max-w-[560px]">
+            Preeti Aaraike Trust was founded to honor her compassion,
+            kindness, and dedication to serving humanity. Through this trust,
+            her legacy continues to uplift lives.
+          </p>
+
+          <a href="#donate"
+            class="inline-block mt-7 bg-yellow-400 text-black px-6 py-3 rounded-2xl font-semibold text-base sm:text-lg hover:opacity-90 transition">
+            Donate Now
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ================= ABOUT ================= -->
-  <section id="about" class="py-16 bg-white">
+  <section id="about" class="scroll-mt-24 md:scroll-mt-28 py-16 bg-white">
     <div class="container mx-auto px-4 text-center max-w-3xl">
       <h2 class="text-3xl font-extrabold text-primary">About Our Trust</h2>
 
@@ -291,7 +288,7 @@
   </section>
 
   <!-- ================= PREMIUM ACTIVITIES ================= -->
-  <section id="activities" class="py-20 bg-gray-100">
+  <section id="activities" class="scroll-mt-24 md:scroll-mt-28 py-20 bg-gray-100">
     <div class="container mx-auto px-4">
 
       <div class="flex flex-col md:flex-row justify-between items-center mb-12">
@@ -312,7 +309,7 @@
     </div>
   </section>
 
-  <section id="impact" class="bg-primary text-white py-24 overflow-hidden">
+  <section id="impact" class="scroll-mt-24 md:scroll-mt-28 bg-primary text-white py-24 overflow-hidden">
 
     <div class="max-w-6xl mx-auto px-6">
 
@@ -349,7 +346,7 @@
   </section>
 
   <!-- ================= GALLERY ================= -->
-  <section id="gallery" class="py-20 bg-white">
+  <section id="gallery" class="scroll-mt-24 md:scroll-mt-28 py-20 bg-white">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-extrabold text-primary text-center mb-12">
         Our Gallery
@@ -369,7 +366,7 @@
   </section>
 
   <!-- ================= DONATE ================= -->
-  <section id="donate" class="bg-yellow-50 py-20">
+  <section id="donate" class="scroll-mt-24 md:scroll-mt-28 bg-yellow-50 py-20">
 
     <div class="max-w-4xl mx-auto px-6 text-center">
 
@@ -411,7 +408,7 @@
   </section>
 
   <!-- ================= CONTACT ================= -->
-  <section id="contact" class="py-16 bg-white">
+  <section id="contact" class="scroll-mt-24 md:scroll-mt-28 py-16 bg-white">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl font-extrabold text-primary">Contact Us</h2>
 
