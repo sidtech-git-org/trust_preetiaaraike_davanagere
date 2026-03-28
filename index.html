@@ -22,8 +22,8 @@
             gold: '#E6B65C'
           },
           boxShadow: {
-              card: '0 10px 25px rgba(0,0,0,0.08)'
-  }
+            card: '0 10px 25px rgba(0,0,0,0.08)'
+          }
         }
       }
     }
@@ -32,79 +32,172 @@
 
 <body class="bg-gray-50 text-slate-800 font-sans">
   <!-- ================= HEADER ================= -->
-  <header class="sticky top-0 bg-white/90 backdrop-blur shadow z-50">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div>
-        <h1 class="text-2xl font-extrabold text-primary">Preeti Aaraike Trust</h1>
-        <p class="text-sm text-gray-600">Davangere, Karnataka</p>
-      </div>
-
-      <nav class="hidden md:flex gap-6 font-semibold text-sm">
-        <a href="#about" class="hover:text-primary">About</a>
-        <a href="#activities" class="hover:text-primary">Activities</a>
-        <a href="#impact" class="hover:text-primary">Impact</a>
-        <a href="#gallery" class="hover:text-primary">Gallery</a>
-        <a href="#contact" class="hover:text-primary">Contact</a>
-        <a href="#donate"
-          class="bg-primary text-white px-4 py-2 rounded-xl hover:bg-red-900 transition">Donate</a>
-      </nav>
+  <header class="sticky top-0 bg-white/95 backdrop-blur shadow z-50">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+    
+    <!-- Brand -->
+    <div class="min-w-0 flex-1">
+      <h1 class="text-[1.7rem] sm:text-2xl font-extrabold text-primary leading-tight truncate">
+        Preeti Aaraike Trust
+      </h1>
+      <p class="text-sm text-gray-600 leading-tight">Davangere, Karnataka</p>
     </div>
-  </header>
 
-  <!-- ================= MOVING ANNOUNCEMENT ================= -->
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex gap-6 font-semibold text-sm items-center shrink-0">
+      <a href="#about" class="hover:text-primary">About</a>
+      <a href="#activities" class="hover:text-primary">Activities</a>
+      <a href="#impact" class="hover:text-primary">Impact</a>
+      <a href="#gallery" class="hover:text-primary">Gallery</a>
+      <a href="#contact" class="hover:text-primary">Contact</a>
+      <a href="#donate" class="bg-primary text-white px-4 py-2 rounded-xl hover:bg-red-900 transition">
+        Donate
+      </a>
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="menuBtn"
+      type="button"
+      class="md:hidden shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-lg border border-slate-300 bg-white text-slate-800"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <svg id="menuIconOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="menuIconClose" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
+    <nav class="px-4 py-3 flex flex-col gap-1 font-semibold text-sm">
+      <a href="#about" class="mobile-link py-3 hover:text-primary">About</a>
+      <a href="#activities" class="mobile-link py-3 hover:text-primary">Activities</a>
+      <a href="#impact" class="mobile-link py-3 hover:text-primary">Impact</a>
+      <a href="#gallery" class="mobile-link py-3 hover:text-primary">Gallery</a>
+      <a href="#contact" class="mobile-link py-3 hover:text-primary">Contact</a>
+      <a href="#donate" class="mobile-link mt-2 bg-primary text-white px-4 py-3 rounded-xl text-center hover:bg-red-900 transition">
+        Donate
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= MOVING ANNOUNCEMENT ================= -->
 <div class="bg-primary text-white py-2 overflow-hidden">
-  <div class="whitespace-nowrap animate-marquee text-sm font-semibold">
-    <a href="#upload" class="underline">
- 📢 Programs & Activities Report Available – Click Here to View our Trust Activities </a>
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <a href="#upload" class="marquee-item underline">
+        📢 Programs & Activities Report Available – Click Here to View our Trust Activities
+      </a>
+      <a href="#upload" class="marquee-item underline" aria-hidden="true">
+        📢 Programs & Activities Report Available – Click Here to View our Trust Activities
+      </a>
+    </div>
   </div>
 </div>
 
 <style>
-@keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-.animate-marquee {
-  display: inline-block;
-  animation: marquee 18s linear infinite;
-}
+  .marquee-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-loop 25s linear infinite;
+  }
+
+  .marquee-item {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .marquee-item:first-child {
+    padding-right: 100vw;
+  }
+
+  .marquee-item:last-child {
+    padding-right: 0;
+  }
+
+  @keyframes marquee-loop {
+    0% {
+      transform: translateX(8%);
+    }
+    100% {
+      transform: translateX(calc(-100% - 70vw));
+    }
+  }
+
+  .marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @media (min-width: 768px) {
+    .marquee-item {
+      font-size: 15px;
+    }
+
+    .marquee-track {
+      animation-duration: 34s;
+    }
+  }
 </style>
 
 
-  <!-- ================= HERO ================= -->
-  <section class="relative text-white py-24">
+ <!-- ================= HERO ================= -->
+<section class="relative h-[500px] sm:h-[540px] md:h-[540px] lg:h-[560px] text-white overflow-hidden bg-[#8b7a5d]">
 
   <!-- Background Image -->
   <div class="absolute inset-0">
-    <img src="assest/img/image.png"
-         alt="Late Mrs. Preeti Ravikumar"
-         class="w-full h-full object-cover">
+    <img
+      src="asset/img/image.png"
+      alt="Late Mrs. Preeti Ravikumar"
+      class="w-full h-full object-contain object-center md:object-contain md:object-[60%_center]"
+    >
   </div>
 
   <!-- Dark Overlay -->
-  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="absolute inset-0 bg-black/45"></div>
 
   <!-- Content -->
-  <div class="relative container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+  <div class="relative h-full max-w-7xl mx-auto px-4 sm:px-5 md:px-8">
+    <div class="h-full flex items-center">
+      <div class="max-w-[290px] sm:max-w-[360px] md:max-w-[620px] opacity-0 translate-y-10 transition duration-1000 hero-animate">
 
-    <div class="opacity-0 translate-y-10 transition duration-1000 hero-animate">
-      <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
-        In Loving Memory of <br>
-        <span class="text-yellow-400">Late Mrs. Preeti Ravikumar</span>
-      </h2>
+        <h2 class="text-[2rem] sm:text-[2.5rem] md:text-[3.7rem] font-extrabold leading-[0.95]">
+          In Loving Memory of
+          <span class="block mt-2 text-yellow-400">
+            Late Mrs. Preeti Ravikumar
+          </span>
+        </h2>
 
-      <p class="mt-6 text-lg text-white/90 max-w-md">
-        Preeti Aaraike Trust was founded to honor her compassion,
-        kindness, and dedication to serving humanity.
-        Through this trust, her legacy continues to uplift lives.
-      </p>
+        <p class="mt-5 text-[0.95rem] sm:text-[1.05rem] md:text-[1.02rem] text-white/90 leading-relaxed max-w-[560px]">
+          Preeti Aaraike Trust was founded to honor her compassion,
+          kindness, and dedication to serving humanity. Through this trust,
+          her legacy continues to uplift lives.
+        </p>
 
-      <a href="#donate"
-        class="inline-block mt-8 bg-yellow-400 text-black px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition">
-        Donate Now
-      </a>
+        <a
+          href="#donate"
+          class="inline-block mt-7 bg-yellow-400 text-black px-6 py-3 rounded-2xl font-semibold text-base sm:text-lg hover:opacity-90 transition"
+        >
+          Donate Now
+        </a>
+
+      </div>
     </div>
-
   </div>
 </section>
 
@@ -114,15 +207,15 @@
       <h2 class="text-3xl font-extrabold text-primary">About Our Trust</h2>
 
       <p class="mt-6 text-slate-700 leading-relaxed">
-        In loving memory of the late Mrs. Preeti Ravikumar, the Preeti Aaraike Trust was 
-established on April 28, 2023. The trust was founded with heartfelt intentions to continue her 
-legacy of compassion, care, and service to society.
+        In loving memory of the late Mrs. Preeti Ravikumar, the Preeti Aaraike Trust was
+        established on April 28, 2023. The trust was founded with heartfelt intentions to continue her
+        legacy of compassion, care, and service to society.
       </p>
     </div>
   </section>
 
-    <!-- About -->
-  <section id="about" class="scroll-mt-[9rem] md:scroll-mt-24 container mx-auto px-4 py-16">
+  <!-- About -->
+  <section class="scroll-mt-[9rem] md:scroll-mt-24 container mx-auto px-4 py-16">
 
     <div class="rounded-2xl bg-white border border-slate-200 p-6 md:p-10 shadow-lift">
       <!-- Adjusted grid: photo 1fr, text 2.5fr (gives more width to text) -->
@@ -132,7 +225,7 @@ legacy of compassion, care, and service to society.
 
         <!-- Founder photo -->
         <div class="text-center md:text-left">
-          <img src="/assest/img/dr_ravikumar_tg.jpg"
+          <img src="/asset/img/dr_ravikumar_tg.jpg"
             alt="Dr. Ravikumar T G, Founder of Aaraike Super Speciality Hospital"
             class="mx-auto md:mx-0 w-28 h-28 sm:w-36 sm:h-36 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-slate-100 shadow-md" />
           <div class="mt-4">
@@ -197,129 +290,125 @@ legacy of compassion, care, and service to society.
     </div>
   </section>
 
-<!-- ================= PREMIUM ACTIVITIES ================= -->
-<section id="activities" class="py-20 bg-gray-100">
-  <div class="container mx-auto px-4">
+  <!-- ================= PREMIUM ACTIVITIES ================= -->
+  <section id="activities" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
 
-    <div class="flex flex-col md:flex-row justify-between items-center mb-12">
-      <h2 class="text-4xl font-extrabold text-primary">
-        Our Programs & Activities
+      <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+        <h2 class="text-4xl font-extrabold text-primary">
+          Our Programs & Activities
+        </h2>
+
+        <select id="yearFilter" class="mt-4 md:mt-0 border border-gray-300 rounded-xl px-4 py-2 shadow-sm">
+          <option value="all">All Years</option>
+          <option value="2023">2023–24</option>
+          <option value="2024">2024–25</option>
+        </select>
+      </div>
+
+      <div id="activityGrid" class="grid md:grid-cols-3 gap-10">
+      </div>
+
+    </div>
+  </section>
+
+  <section id="impact" class="bg-primary text-white py-24 overflow-hidden">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center mb-16 opacity-0 translate-y-10 transition duration-700 impact-animate">
+        Our Impact
       </h2>
 
-      <select id="yearFilter"
-        class="mt-4 md:mt-0 border border-gray-300 rounded-xl px-4 py-2 shadow-sm">
-        <option value="all">All Years</option>
-        <option value="2023">2023–24</option>
-        <option value="2024">2024–25</option>
-      </select>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+
+        <div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
+          <h3 class="text-5xl font-bold counter" data-target="40000">0</h3>
+          <p class="mt-3 text-white/80 text-lg">People Benefited</p>
+        </div>
+
+        <div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
+          <h3 class="text-5xl font-bold counter" data-target="100">0</h3>
+          <p class="mt-3 text-white/80 text-lg">Health Camps</p>
+        </div>
+
+        <div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
+          <h3 class="text-5xl font-bold counter" data-target="30">0</h3>
+          <p class="mt-3 text-white/80 text-lg">Veterans Supported</p>
+        </div>
+
+        <div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
+          <h3 class="text-5xl font-bold counter" data-target="3">0</h3>
+          <p class="mt-3 text-white/80 text-lg">Years of Service</p>
+        </div>
+
+      </div>
     </div>
 
-    <div id="activityGrid"
-      class="grid md:grid-cols-3 gap-10">
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section id="gallery" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-extrabold text-primary text-center mb-12">
+        Our Gallery
+      </h2>
+      <div class="relative overflow-hidden rounded-2xl shadow-lg">
+        <img id="galleryImage" src="asset/img/a1.jpg" class="w-full h-[420px] object-cover transition duration-500">
+        <button onclick="prevGallery()"
+          class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full">
+          ◀
+        </button>
+        <button onclick="nextGallery()"
+          class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full">
+          ▶
+        </button>
+      </div>
     </div>
-
-  </div>
-</section>
-
-<section id="impact" class="bg-primary text-white py-24 overflow-hidden">
-
-<div class="max-w-6xl mx-auto px-6">
-
-<h2 class="text-3xl md:text-4xl font-bold text-center mb-16 opacity-0 translate-y-10 transition duration-700 impact-animate">
-Our Impact
-</h2>
-
-<div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-
-<div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
-<h3 class="text-5xl font-bold counter" data-target="40000">0</h3>
-<p class="mt-3 text-white/80 text-lg">People Benefited</p>
-</div>
-
-<div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
-<h3 class="text-5xl font-bold counter" data-target="100">0</h3>
-<p class="mt-3 text-white/80 text-lg">Health Camps</p>
-</div>
-
-<div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
-<h3 class="text-5xl font-bold counter" data-target="30">0</h3>
-<p class="mt-3 text-white/80 text-lg">Veterans Supported</p>
-</div>
-
-<div class="hover:scale-105 transition duration-300 opacity-0 translate-y-10 impact-animate">
-<h3 class="text-5xl font-bold counter" data-target="3">0</h3>
-<p class="mt-3 text-white/80 text-lg">Years of Service</p>
-</div>
-
-</div>
-</div>
-
-</section>
-
-<!-- ================= GALLERY ================= -->
-<section id="gallery" class="py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-extrabold text-primary text-center mb-12">
-      Our Gallery
-    </h2>
-  <div class="relative overflow-hidden rounded-2xl shadow-lg">
-  <img id="galleryImage"
-    src="assets/img/a1.jpg"
-    class="w-full h-[420px] object-cover transition duration-500">
-    <button onclick="prevGallery()"
-      class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full">
-    ◀
-    </button>
-    <button onclick="nextGallery()"
-      class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full">
-    ▶
-    </button>
-  </div>
-</div>
-</section>
+  </section>
 
   <!-- ================= DONATE ================= -->
   <section id="donate" class="bg-yellow-50 py-20">
 
-<div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="max-w-4xl mx-auto px-6 text-center">
 
-<h2 class="text-3xl font-bold text-primary">
-Support Our Cause
-</h2>
+      <h2 class="text-3xl font-bold text-primary">
+        Support Our Cause
+      </h2>
 
-<p class="mt-4 text-slate-700">
-Your donation helps us organize medical camps, support veterans,
-and improve healthcare access in rural communities.
-</p>
+      <p class="mt-4 text-slate-700">
+        Your donation helps us organize medical camps, support veterans,
+        and improve healthcare access in rural communities.
+      </p>
 
-<div class="mt-10 grid md:grid-cols-2 gap-10 items-center">
+      <div class="mt-10 grid md:grid-cols-2 gap-10 items-center">
 
-<div>
+        <div>
 
-<img src="assets/img/qr.png"
-class="w-64 mx-auto shadow-lg rounded-xl">
-<p class="mt-4 text-sm text-gray-600">
-Scan to donate via UPI
-</p>
-</div>
-<div class="text-left">
-<p class="font-semibold text-lg">Bank Details</p>
-<p class="mt-4 text-gray-700">
-Account Name: Preeti Aaraike Trust
-</p>
-<p class="text-gray-700">
-Bank: State Bank of India
-</p>
-<p class="text-gray-700">
-Account Number: XXXXXXXX
-</p>
-<p class="text-gray-700">
-IFSC: XXXXXXXX
-</p>
-</div>
-</div>
-</div>
-</section>
+          <img src="asset/img/qr.png" class="w-64 mx-auto shadow-lg rounded-xl">
+          <p class="mt-4 text-sm text-gray-600">
+            Scan to donate via UPI
+          </p>
+        </div>
+        <div class="text-left">
+          <p class="font-semibold text-lg">Bank Details</p>
+          <p class="mt-4 text-gray-700">
+            Account Name: Preeti Aaraike Trust
+          </p>
+          <p class="text-gray-700">
+            Bank: State Bank of India
+          </p>
+          <p class="text-gray-700">
+            Account Number: XXXXXXXX
+          </p>
+          <p class="text-gray-700">
+            IFSC: XXXXXXXX
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ================= CONTACT ================= -->
   <section id="contact" class="py-16 bg-white">
@@ -334,77 +423,75 @@ IFSC: XXXXXXXX
     </div>
   </section>
 
-<!-- ================= MODAL ================= -->
-<div id="activityModal"
-  class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+  <!-- ================= MODAL ================= -->
+  <div id="activityModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
 
-  <div class="bg-white max-w-5xl w-full rounded-2xl p-8 relative overflow-y-auto max-h-[90vh]">
+    <div class="bg-white max-w-5xl w-full rounded-2xl p-8 relative overflow-y-auto max-h-[90vh]">
 
-    <button onclick="closeModal()"
-      class="absolute top-4 right-6 text-2xl font-bold text-gray-600 hover:text-red-600">
-      &times;
-    </button>
+      <button onclick="closeModal()" class="absolute top-4 right-6 text-2xl font-bold text-gray-600 hover:text-red-600">
+        &times;
+      </button>
 
-    <div id="modalContent"></div>
+      <div id="modalContent"></div>
 
+    </div>
   </div>
-</div>
 
-<script>
-const activities = [
-  {
-    id: 1,
-    year: "2023",
-    title: "Health Support for Veterans",
-    short: "Distributed lifetime health cards to 30 retired soldiers.",
-    full: "Health cards under the Preetiya Haraike Health Program have been distributed to 30 retired soldiers who served in the Indian Army. These cards enable them to avail free lifetime health check-ups at the Aarike Hospital.",
-    images: ["assest/img/v1.png", "assest/img/v2.png"],
-    pdf: "assests/pdf/apdf.pdf"
-  },
-  {
-    id: 2,
-    year: "2023",
-    title: "Free Health Camps",
-    short: "100+ camps benefiting 40,000+ people.",
-    full: "Organized over 100 camps across Davangere covering Vidyanagara, Harihara, Nittuvalli and more.",
-    images: ["assets/img/camp1.jpg", "assets/img/camp2.jpg"],
-    pdf: "assets/pdf/pdf"
-  },
-  {
-    id: 3,
-    year: "2024",
-    title: "Health Kit Distribution",
-    short: "Medical kits distributed to Ayyappa devotees.",
-    full: "Health kits distributed during pilgrimage ensuring safety and well-being.",
-    images: ["assets/img/kit1.jpg", "assets/img/kit2.jpg"],
-    pdf: "assets/pdf/healthkit.pdf"
-  },
-  {
-    id: 4,
-    year: "2025",
-    title: "Health Awareness Initiatives",
-    short: "Medical kits distributed to Ayyappa devotees.",
-    full: "Volunteers visit homes to create awareness about common health issues such as blood pressure, diabetes, ECG, ECHO, and infectious diseases, promoting preventive care. ",
-    images: ["assets/img/kit1.jpg", "assets/img/kit2.jpg"],
-    pdf: "assets/pdf/healthkit.pdf"
-  },
-  {
-    id: 5,
-    year: "2025",
-    title: "Educational Health Media",
-    short: "Medical kits distributed to Ayyappa devotees.",
-    full: "The trust regularly publishes informative videos and articles on health awareness, encouraging people to maintain a healthy lifestyle.",
-    images: ["assets/img/kit1.jpg", "assets/img/kit2.jpg"],
-    pdf: "assets/pdf/healthkit.pdf"
-  }
+  <script>
+    const activities = [
+      {
+        id: 1,
+        year: "2023",
+        title: "Health Support for Veterans",
+        short: "Distributed lifetime health cards to 30 retired soldiers.",
+        full: "Health cards under the Preetiya Haraike Health Program have been distributed to 30 retired soldiers who served in the Indian Army. These cards enable them to avail free lifetime health check-ups at the Aarike Hospital.",
+        images: ["asset/img/v1.png", "asset/img/v2.png"],
+        pdf: "assets/pdf/apdf.pdf"
+      },
+      {
+        id: 2,
+        year: "2023",
+        title: "Free Health Camps",
+        short: "100+ camps benefiting 40,000+ people.",
+        full: "Organized over 100 camps across Davangere covering Vidyanagara, Harihara, Nittuvalli and more.",
+        images: ["asset/img/camp1.jpg", "asset/img/camp2.jpg"],
+        pdf: "assets/pdf/pdf"
+      },
+      {
+        id: 3,
+        year: "2024",
+        title: "Health Kit Distribution",
+        short: "Medical kits distributed to Ayyappa devotees.",
+        full: "Health kits distributed during pilgrimage ensuring safety and well-being.",
+        images: ["asset/img/kit1.jpg", "asset/img/kit2.jpg"],
+        pdf: "assets/pdf/healthkit.pdf"
+      },
+      {
+        id: 4,
+        year: "2025",
+        title: "Health Awareness Initiatives",
+        short: "Medical kits distributed to Ayyappa devotees.",
+        full: "Volunteers visit homes to create awareness about common health issues such as blood pressure, diabetes, ECG, ECHO, and infectious diseases, promoting preventive care. ",
+        images: ["asset/img/kit1.jpg", "asset/img/kit2.jpg"],
+        pdf: "assets/pdf/healthkit.pdf"
+      },
+      {
+        id: 5,
+        year: "2025",
+        title: "Educational Health Media",
+        short: "Medical kits distributed to Ayyappa devotees.",
+        full: "The trust regularly publishes informative videos and articles on health awareness, encouraging people to maintain a healthy lifestyle.",
+        images: ["asset/img/kit1.jpg", "asset/img/kit2.jpg"],
+        pdf: "assets/pdf/healthkit.pdf"
+      }
 
-];
-const grid = document.getElementById("activityGrid");
-const yearFilter = document.getElementById("yearFilter");
-function renderActivities(filterYear = "all") {
-  grid.innerHTML = activities
-    .filter(a => filterYear === "all" || a.year === filterYear)
-    .map(a => `
+    ];
+    const grid = document.getElementById("activityGrid");
+    const yearFilter = document.getElementById("yearFilter");
+    function renderActivities(filterYear = "all") {
+      grid.innerHTML = activities
+        .filter(a => filterYear === "all" || a.year === filterYear)
+        .map(a => `
       <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
         <!-- Image -->
         <img src="${a.images[0]}"
@@ -430,14 +517,14 @@ function renderActivities(filterYear = "all") {
         </div>
       </div>
     `).join("");
-}
-yearFilter.addEventListener("change", (e) => {
-  renderActivities(e.target.value);
-});
-renderActivities();
-function openModal(id) {
-  const activity = activities.find(a => a.id === id);
-  document.getElementById("modalContent").innerHTML = `
+    }
+    yearFilter.addEventListener("change", (e) => {
+      renderActivities(e.target.value);
+    });
+    renderActivities();
+    function openModal(id) {
+      const activity = activities.find(a => a.id === id);
+      document.getElementById("modalContent").innerHTML = `
     <h2 class="text-3xl font-bold text-primary mb-4">
       ${activity.title}
     </h2>
@@ -445,7 +532,7 @@ function openModal(id) {
 <div class="relative w-full">
   <img id="sliderImage"
     src="${activity.images[0]}"
-    class="rounded-xl w-full max-h-[500px] object-contain bg-gray-100">
+    class="rounded-xl w-full max-h-[520px] object-contain bg-gray-100">
   <button onclick="prevImage()"
     class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-3 py-2 rounded-full">
     ◀
@@ -455,107 +542,107 @@ function openModal(id) {
     ▶
   </button>
 </div>
-  <button onclick="openPDF('assests/pdf/apdf.pdf')"
+  <button onclick="openPDF('assets/pdf/apdf.pdf')"
     class="mt-6 bg-gold text-black px-6 py-3 rounded-xl font-semibold">
     View Full Report
   </button>
   `;
-  currentImages = activity.images;
-  currentIndex = 0;
-  document.getElementById("activityModal").classList.remove("hidden");
-  document.getElementById("activityModal").classList.add("flex");
-}
-function closeModal() {
-  document.getElementById("activityModal").classList.add("hidden");
-}
-let currentImages = [];
-let currentIndex = 0;
+      currentImages = activity.images;
+      currentIndex = 0;
+      document.getElementById("activityModal").classList.remove("hidden");
+      document.getElementById("activityModal").classList.add("flex");
+    }
+    function closeModal() {
+      document.getElementById("activityModal").classList.add("hidden");
+    }
+    let currentImages = [];
+    let currentIndex = 0;
 
-function nextImage() {
-  currentIndex = (currentIndex + 1) % currentImages.length;
-  document.getElementById("sliderImage").src = currentImages[currentIndex];
-}
-function prevImage() {
-  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-  document.getElementById("sliderImage").src = currentImages[currentIndex];
-}
-</script>
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      document.getElementById("sliderImage").src = currentImages[currentIndex];
+    }
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      document.getElementById("sliderImage").src = currentImages[currentIndex];
+    }
+  </script>
 
 
-<script>
-const counters = document.querySelectorAll(".counter");
-const impactSection = document.querySelector("#impact");
-const animatedElements = document.querySelectorAll(".impact-animate");
-let started = false;
-function animateCounters() {
-counters.forEach(counter => {
-const target = +counter.getAttribute("data-target");
-const increment = target / 200;
-const updateCount = () => {
-const current = +counter.innerText;
-if (current < target) {
-counter.innerText = Math.ceil(current + increment);
-setTimeout(updateCount, 15);
-} else {
-counter.innerText = target.toLocaleString() + "+";
-}
-};
-updateCount();
-});
-}
-function showAnimation(){
-animatedElements.forEach((el,i)=>{
-setTimeout(()=>{
-el.classList.remove("opacity-0","translate-y-10");
-}, i*150);
-});
-}
-window.addEventListener("scroll",()=>{
-const sectionTop = impactSection.offsetTop - window.innerHeight + 100;
-if(!started && window.scrollY > sectionTop){
-animateCounters();
-showAnimation();
-started = true;
-}
-});
-</script>
+  <script>
+    const counters = document.querySelectorAll(".counter");
+    const impactSection = document.querySelector("#impact");
+    const animatedElements = document.querySelectorAll(".impact-animate");
+    let started = false;
+    function animateCounters() {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute("data-target");
+        const increment = target / 200;
+        const updateCount = () => {
+          const current = +counter.innerText;
+          if (current < target) {
+            counter.innerText = Math.ceil(current + increment);
+            setTimeout(updateCount, 15);
+          } else {
+            counter.innerText = target.toLocaleString() + "+";
+          }
+        };
+        updateCount();
+      });
+    }
+    function showAnimation() {
+      animatedElements.forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.remove("opacity-0", "translate-y-10");
+        }, i * 150);
+      });
+    }
+    window.addEventListener("scroll", () => {
+      const sectionTop = impactSection.offsetTop - window.innerHeight + 100;
+      if (!started && window.scrollY > sectionTop) {
+        animateCounters();
+        showAnimation();
+        started = true;
+      }
+    });
+  </script>
 
-<!-- ================= Gallery script ================= -->
-<script>
+  <!-- ================= Gallery script ================= -->
+  <script>
 
-const galleryImages = [
-"assets/img/a1.jpg",
-"assets/img/trust2.jpg",
-"assets/img/trust3.jpg"
-];
+    const galleryImages = [
+      "asset/img/a1.jpg",
+      "asset/img/trust2.jpg",
+      "asset/img/trust3.jpg"
+    ];
 
-let galleryIndex = 0;
+    let galleryIndex = 0;
 
-function nextGallery(){
-galleryIndex = (galleryIndex + 1) % galleryImages.length;
-document.getElementById("galleryImage").src = galleryImages[galleryIndex];
-}
+    function nextGallery() {
+      galleryIndex = (galleryIndex + 1) % galleryImages.length;
+      document.getElementById("galleryImage").src = galleryImages[galleryIndex];
+    }
 
-function prevGallery(){
-galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
-document.getElementById("galleryImage").src = galleryImages[galleryIndex];
-}
+    function prevGallery() {
+      galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      document.getElementById("galleryImage").src = galleryImages[galleryIndex];
+    }
 
-</script>
+  </script>
 
-<script>
+  <script>
 
-window.addEventListener("load",()=>{
+    window.addEventListener("load", () => {
 
-const hero = document.querySelector(".hero-animate");
+      const hero = document.querySelector(".hero-animate");
 
-setTimeout(()=>{
-hero.classList.remove("opacity-0","translate-y-10");
-},300);
+      setTimeout(() => {
+        hero.classList.remove("opacity-0", "translate-y-10");
+      }, 300);
 
-});
+    });
 
-</script>
+  </script>
 
 
   <!-- ================= FOOTER ================= -->
@@ -568,5 +655,32 @@ hero.classList.remove("opacity-0","translate-y-10");
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const menuIconOpen = document.getElementById("menuIconOpen");
+    const menuIconClose = document.getElementById("menuIconClose");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      const isHidden = mobileMenu.classList.contains("hidden");
+
+      mobileMenu.classList.toggle("hidden");
+      menuIconOpen.classList.toggle("hidden");
+      menuIconClose.classList.toggle("hidden");
+      menuBtn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuIconOpen.classList.remove("hidden");
+        menuIconClose.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+
 </body>
+
 </html>
