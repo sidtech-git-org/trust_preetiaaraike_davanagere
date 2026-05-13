@@ -46,9 +46,9 @@
       <!-- Desktop Nav -->
       <nav class="hidden md:flex gap-6 font-semibold text-sm items-center shrink-0">
         <a href="#about" class="hover:text-primary">About</a>
-        <a href="#activities" class="hover:text-primary">Activities</a>
         <a href="#impact" class="hover:text-primary">Impact</a>
-        <a href="#gallery" class="hover:text-primary">Gallery</a>
+        <a href="#activities" class="hover:text-primary">Activities</a>
+        <a href="#donate" class="hover:text-primary">Support</a>
         <a href="#contact" class="hover:text-primary">Contact</a>
         <a href="#donate" class="bg-primary text-white px-4 py-2 rounded-xl hover:bg-red-900 transition">
           Donate
@@ -74,9 +74,9 @@
     <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
       <nav class="px-4 py-3 flex flex-col gap-1 font-semibold text-sm">
         <a href="#about" class="mobile-link py-3 hover:text-primary">About</a>
-        <a href="#activities" class="mobile-link py-3 hover:text-primary">Activities</a>
         <a href="#impact" class="mobile-link py-3 hover:text-primary">Impact</a>
-        <a href="#gallery" class="mobile-link py-3 hover:text-primary">Gallery</a>
+        <a href="#activities" class="mobile-link py-3 hover:text-primary">Activities</a>
+        <a href="#donate" class="mobile-link py-3 hover:text-primary">Support</a>
         <a href="#contact" class="mobile-link py-3 hover:text-primary">Contact</a>
         <a href="#donate"
           class="mobile-link mt-2 bg-primary text-white px-4 py-3 rounded-xl text-center hover:bg-red-900 transition">
@@ -235,7 +235,7 @@
         <!-- Message -->
         <div class="md:pl-4">
           <h2
-            class="text-xl sm:text-2xl md:text-[1.85rem] font-extrabold text-slate-900 leading-tight whitespace-normal md:whitespace-nowrap">
+            class="text-xl sm:text-2xl md:text-[1.85rem] font-extrabold text-primary leading-tight whitespace-normal md:whitespace-nowrap">
 
             Caring for our Community, with accountability and heart
           </h2>
@@ -287,28 +287,6 @@
     </div>
   </section>
 
-  <!-- ================= PREMIUM ACTIVITIES ================= -->
-  <section id="activities" class="scroll-mt-24 md:scroll-mt-28 py-20 bg-gray-100">
-    <div class="container mx-auto px-4">
-
-      <div class="flex flex-col md:flex-row justify-between items-center mb-12">
-        <h2 class="text-4xl font-extrabold text-primary">
-          Our Programs & Activities
-        </h2>
-
-        <select id="yearFilter" class="mt-4 md:mt-0 border border-gray-300 rounded-xl px-4 py-2 shadow-sm">
-          <option value="all">All Years</option>
-          <option value="2023">2023–24</option>
-          <option value="2024">2024–25</option>
-        </select>
-      </div>
-
-      <div id="activityGrid" class="grid md:grid-cols-3 gap-10">
-      </div>
-
-    </div>
-  </section>
-
   <section id="impact" class="scroll-mt-24 md:scroll-mt-28 bg-primary text-white py-24 overflow-hidden">
 
     <div class="max-w-6xl mx-auto px-6">
@@ -345,23 +323,25 @@
 
   </section>
 
-  <!-- ================= GALLERY ================= -->
-  <section id="gallery" class="scroll-mt-24 md:scroll-mt-28 py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-extrabold text-primary text-center mb-12">
-        Our Gallery
-      </h2>
-      <div class="relative overflow-hidden rounded-2xl shadow-lg">
-        <img id="galleryImage" src="asset/img/a1.jpg" class="w-full h-[420px] object-cover transition duration-500">
-        <button onclick="prevGallery()"
-          class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full">
-          ◀
-        </button>
-        <button onclick="nextGallery()"
-          class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full">
-          ▶
-        </button>
+  <!-- ================= PREMIUM ACTIVITIES ================= -->
+  <section id="activities" class="scroll-mt-24 md:scroll-mt-28 py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+
+      <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+        <h2 class="text-4xl font-extrabold text-primary">
+          Our Programs & Activities
+        </h2>
+
+        <select id="yearFilter" class="mt-4 md:mt-0 border border-gray-300 rounded-xl px-4 py-2 shadow-sm">
+          <option value="all">All Years</option>
+          <option value="2023">2023–24</option>
+          <option value="2024">2024–25</option>
+        </select>
       </div>
+
+      <div id="activityGrid" class="grid md:grid-cols-3 gap-10">
+      </div>
+
     </div>
   </section>
 
@@ -437,48 +417,31 @@
   <script>
     const activities = [
       {
-        id: 1,
-        year: "2023",
-        title: "Health Support for Veterans",
-        short: "Distributed lifetime health cards to 30 retired soldiers.",
-        full: "Health cards under the Preetiya Haraike Health Program have been distributed to 30 retired soldiers who served in the Indian Army. These cards enable them to avail free lifetime health check-ups at the Aarike Hospital.",
-        images: ["asset/img/v1.png", "asset/img/v2.png"],
-        pdf: "assets/pdf/apdf.pdf"
-      },
-      {
         id: 2,
-        year: "2023",
         title: "Free Health Camps",
-        short: "100+ camps benefiting 40,000+ people.",
         full: "Organized over 100 camps across Davangere covering Vidyanagara, Harihara, Nittuvalli and more.",
-        images: ["asset/img/camp1.jpg", "asset/img/camp2.jpg"],
+        images: ["asset/img/3.jpeg", "asset/img/2.jpeg", "asset/img/10.jpeg", "asset/img/11.jpeg", "asset/img/13.jpeg", "asset/img/14.jpeg", "asset/img/18.jpeg", "asset/img/26.jpeg", "asset/img/27.jpeg", "asset/img/29.jpeg"],
         pdf: "assets/pdf/pdf"
       },
       {
-        id: 3,
-        year: "2024",
-        title: "Health Kit Distribution",
-        short: "Medical kits distributed to Ayyappa devotees.",
-        full: "Health kits distributed during pilgrimage ensuring safety and well-being.",
-        images: ["asset/img/kit1.jpg", "asset/img/kit2.jpg"],
+        id: 4,
+        title: "Health Awareness Initiatives",
+        full: "Volunteers visit homes to create awareness about common health issues such as blood pressure, diabetes, ECG, ECHO, and infectious diseases, promoting preventive care. ",
+        images: ["asset/img/27.jpeg", "asset/img/1.jpeg", "asset/img/4.jpeg", "asset/img/6.jpeg", "asset/img/7.jpeg", "asset/img/12.jpeg", "asset/img/14.jpeg", "asset/img/15.jpeg", "asset/img/17.jpeg", "asset/img/23.jpeg", "asset/img/24.jpeg", "asset/img/25.jpeg", "asset/img/28.jpeg"],
         pdf: "assets/pdf/healthkit.pdf"
       },
       {
-        id: 4,
-        year: "2025",
-        title: "Health Awareness Initiatives",
-        short: "Medical kits distributed to Ayyappa devotees.",
-        full: "Volunteers visit homes to create awareness about common health issues such as blood pressure, diabetes, ECG, ECHO, and infectious diseases, promoting preventive care. ",
-        images: ["asset/img/kit1.jpg", "asset/img/kit2.jpg"],
-        pdf: "assets/pdf/healthkit.pdf"
+        id: 1,
+        title: "Health Support for Veterans",
+        full: "Health cards under the Preetiya Haraike Health Program have been distributed to 30 retired soldiers who served in the Indian Army. These cards enable them to avail free lifetime health check-ups at the Aarike Hospital.",
+        images: ["asset/img/v1.png", "asset/img/v2.png", "asset/img/6.jpeg", "asset/img/7.jpeg", "asset/img/17.jpeg", "asset/img/21.jpeg"],
+        pdf: "assets/pdf/apdf.pdf"
       },
       {
         id: 5,
-        year: "2025",
-        title: "Educational Health Media",
-        short: "Medical kits distributed to Ayyappa devotees.",
+        title: "Public Welfare Initiatives",
         full: "The trust regularly publishes informative videos and articles on health awareness, encouraging people to maintain a healthy lifestyle.",
-        images: ["asset/img/kit1.jpg", "asset/img/kit2.jpg"],
+        images: ["asset/img/9.jpeg", "asset/img/16.jpeg", "asset/img/22.jpeg", "asset/img/30.jpeg"],
         pdf: "assets/pdf/healthkit.pdf"
       }
 
@@ -494,18 +457,10 @@
         <img src="${a.images[0]}"
              class="w-full h-60 object-cover">
         <div class="p-6">
-          <!-- Year -->
-          <p class="text-sm text-gray-400 mb-2">
-            ${a.year}
-          </p>
           <!-- Title -->
           <h3 class="text-xl font-bold text-primary leading-snug">
             ${a.title}
           </h3>
-          <!-- Short description -->
-          <p class="mt-3 text-gray-600 text-sm leading-relaxed">
-            ${a.short}
-          </p>
           <!-- Button -->
           <button onclick="openModal(${a.id})"
             class="mt-6 bg-primary text-white px-5 py-2 rounded-lg hover:bg-red-900 transition">
@@ -602,29 +557,6 @@
         started = true;
       }
     });
-  </script>
-
-  <!-- ================= Gallery script ================= -->
-  <script>
-
-    const galleryImages = [
-      "asset/img/a1.jpg",
-      "asset/img/trust2.jpg",
-      "asset/img/trust3.jpg"
-    ];
-
-    let galleryIndex = 0;
-
-    function nextGallery() {
-      galleryIndex = (galleryIndex + 1) % galleryImages.length;
-      document.getElementById("galleryImage").src = galleryImages[galleryIndex];
-    }
-
-    function prevGallery() {
-      galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
-      document.getElementById("galleryImage").src = galleryImages[galleryIndex];
-    }
-
   </script>
 
   <script>
