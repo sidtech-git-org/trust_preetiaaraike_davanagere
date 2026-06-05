@@ -282,16 +282,10 @@
   <section id="activities" class="scroll-mt-24 md:scroll-mt-28 py-20 bg-gray-100">
     <div class="container mx-auto px-4">
 
-      <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+      <div class="mb-12">
         <h2 class="text-4xl font-extrabold text-primary">
           Our Programs & Activities
         </h2>
-
-        <select id="yearFilter" class="mt-4 md:mt-0 border border-gray-300 rounded-xl px-4 py-2 shadow-sm">
-          <option value="all">All Years</option>
-          <option value="2023">2023–24</option>
-          <option value="2024">2024–25</option>
-        </select>
       </div>
 
       <div id="activityGrid" class="grid md:grid-cols-3 gap-10">
@@ -402,15 +396,13 @@
 
     ];
     const grid = document.getElementById("activityGrid");
-    const yearFilter = document.getElementById("yearFilter");
     
     function openPDF(pdfPath) {
       window.open(pdfPath, '_blank');
     }
     
-    function renderActivities(filterYear = "all") {
+    function renderActivities() {
       grid.innerHTML = activities
-        .filter(a => filterYear === "all" || a.year === filterYear)
         .map(a => `
       <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 transform hover:-translate-y-2">
         <!-- Image -->
@@ -430,9 +422,6 @@
       </div>
     `).join("");
     }
-    yearFilter.addEventListener("change", (e) => {
-      renderActivities(e.target.value);
-    });
     renderActivities();
     function openModal(id) {
       const activity = activities.find(a => a.id === id);
