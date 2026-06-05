@@ -36,12 +36,12 @@
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
 
       <!-- Brand -->
-      <div class="min-w-0 flex-1">
+      <a href="/" class="min-w-0 flex-1 hover:opacity-80 transition">
         <h1 class="text-[1.7rem] sm:text-2xl font-extrabold text-primary leading-tight truncate">
           Preeti Aaraike Trust
         </h1>
         <p class="text-sm text-gray-600 leading-tight">Davangere, Karnataka</p>
-      </div>
+      </a>
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex gap-6 font-semibold text-sm items-center shrink-0">
@@ -87,71 +87,26 @@
   </header>
 
   <!-- ================= MOVING ANNOUNCEMENT ================= -->
-  <div class="bg-primary text-white py-2 overflow-hidden">
-    <div class="marquee-wrapper">
-      <div class="marquee-track">
-        <a href="#upload" class="marquee-item underline">
-          📢 Programs & Activities Report Available – Click Here to View our Trust Activities
-        </a>
-        <a href="#upload" class="marquee-item underline" aria-hidden="true">
-          📢 Programs & Activities Report Available – Click Here to View our Trust Activities
-        </a>
-      </div>
-    </div>
+  <div class="bg-primary text-white py-4 text-center">
+    <a href="#" onclick="openPDF('assets/pdf/apdf.pdf'); return false;" class="announcement-blink inline-block text-sm sm:text-base font-semibold hover:text-yellow-300 transition">
+      📢 Programs & Activities Report Available – Click Here to View our Trust Activities
+    </a>
   </div>
 
   <style>
-    .marquee-wrapper {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee-loop 25s linear infinite;
-    }
-
-    .marquee-item {
-      flex: 0 0 auto;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .marquee-item:first-child {
-      padding-right: 100vw;
-    }
-
-    .marquee-item:last-child {
-      padding-right: 0;
-    }
-
-    @keyframes marquee-loop {
-      0% {
-        transform: translateX(8%);
+    @keyframes blink-slow {
+      0%, 49% {
+        opacity: 1;
       }
-
-      100% {
-        transform: translateX(calc(-100% - 70vw));
+      50%, 100% {
+        opacity: 0.4;
       }
     }
 
-    .marquee-wrapper:hover .marquee-track {
-      animation-play-state: paused;
-    }
-
-    @media (min-width: 768px) {
-      .marquee-item {
-        font-size: 15px;
-      }
-
-      .marquee-track {
-        animation-duration: 34s;
-      }
+    .announcement-blink {
+      animation: blink-slow 2s ease-in-out infinite;
+      cursor: pointer;
+      text-decoration: underline;
     }
   </style>
 
@@ -206,7 +161,7 @@
       <p class="mt-6 text-slate-700 leading-relaxed">
         In loving memory of the late Mrs. Preeti Ravikumar, the Preeti Aaraike Trust was
         established on April 28, 2023. The trust was founded with heartfelt intentions to continue her
-        legacy of compassion, care, and service to society.
+        legacy of compassion, care, and service to the society.
       </p>
     </div>
   </section>
@@ -228,7 +183,7 @@
           <div class="mt-4">
             <p class="text-lg font-extrabold text-slate-900">Dr. Ravikumar T G</p>
             <p class="text-sm text-slate-600">Founder & Medical Director</p>
-            <p class="text-sm text-slate-500">Aaraike Super Speciality Hospital, Davangere</p>
+            <p class="text-sm text-slate-500">Aaraike Super Speciality Hospitals, Davangere</p>
           </div>
         </div>
 
@@ -419,7 +374,7 @@
       {
         id: 2,
         title: "Free Health Camps",
-        full: "Organized over 100 camps across Davangere covering Vidyanagara, Harihara, Nittuvalli and more.",
+        full: "Organized over 100 camps across Davangere covering Vidyanagara, Harihara, Nittuvalli and other places.",
         images: ["asset/img/3.jpeg", "asset/img/2.jpeg", "asset/img/10.jpeg", "asset/img/11.jpeg", "asset/img/13.jpeg", "asset/img/14.jpeg", "asset/img/18.jpeg", "asset/img/26.jpeg", "asset/img/27.jpeg", "asset/img/29.jpeg"],
         pdf: "assets/pdf/pdf"
       },
@@ -433,14 +388,14 @@
       {
         id: 1,
         title: "Health Support for Veterans",
-        full: "Health cards under the Preetiya Haraike Health Program have been distributed to 30 retired soldiers who served in the Indian Army. These cards enable them to avail free lifetime health check-ups at the Aarike Hospital.",
+        full: "Health cards under the 'Preetiya Haraike' Health Program have been distributed to 30 retired soldiers who served in the Indian Army. These cards enable them to avail free lifetime health check-ups at the Aaraike Hospital.",
         images: ["asset/img/v1.png", "asset/img/v2.png", "asset/img/6.jpeg", "asset/img/7.jpeg", "asset/img/17.jpeg", "asset/img/21.jpeg"],
         pdf: "assets/pdf/apdf.pdf"
       },
       {
         id: 5,
         title: "Public Welfare Initiatives",
-        full: "The trust regularly publishes informative videos and articles on health awareness, encouraging people to maintain a healthy lifestyle.",
+        full: "Community support programs including food security drives, disaster relief assistance, educational scholarships, and livelihood support for vulnerable and underprivileged families across Davangere region.",
         images: ["asset/img/9.jpeg", "asset/img/16.jpeg", "asset/img/22.jpeg", "asset/img/30.jpeg"],
         pdf: "assets/pdf/healthkit.pdf"
       }
@@ -448,6 +403,11 @@
     ];
     const grid = document.getElementById("activityGrid");
     const yearFilter = document.getElementById("yearFilter");
+    
+    function openPDF(pdfPath) {
+      window.open(pdfPath, '_blank');
+    }
+    
     function renderActivities(filterYear = "all") {
       grid.innerHTML = activities
         .filter(a => filterYear === "all" || a.year === filterYear)
@@ -578,7 +538,7 @@
   <footer class="bg-primary text-white py-6 text-center">
     <p>© <span id="year"></span> Preeti Aaraike Trust. All Rights Reserved.</p>
     <p>
-      Designed and Developed by
+      Website by
       <a href="https://sidtech.in" target="_blank" rel="noopener noreferrer" class="underline hover:text-yellow-300">
         SidTech
       </a>
